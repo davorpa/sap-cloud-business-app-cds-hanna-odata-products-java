@@ -1,0 +1,65 @@
+{
+  "namespace": "my.app",
+  "definitions": {
+    "CatalogService": {
+      "kind": "service",
+      "@source": "srv/cat-service.cds"
+    },
+    "CatalogService.Products": {
+      "kind": "entity",
+      "@cds.persistence.name": "CATALOGSERVICE_PRODUCTS",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "my.app.Products"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "ProductID": {
+          "@cds.persistence.name": "PRODUCTID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ProductName": {
+          "@cds.persistence.name": "PRODUCTNAME",
+          "type": "cds.String"
+        },
+        "UnitsInStock": {
+          "@cds.persistence.name": "UNITSINSTOCK",
+          "type": "cds.Integer"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "my.app.Products": {
+      "kind": "entity",
+      "@cds.persistence.name": "MY_APP_PRODUCTS",
+      "elements": {
+        "ProductID": {
+          "@cds.persistence.name": "PRODUCTID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "ProductName": {
+          "@cds.persistence.name": "PRODUCTNAME",
+          "type": "cds.String"
+        },
+        "UnitsInStock": {
+          "@cds.persistence.name": "UNITSINSTOCK",
+          "type": "cds.Integer"
+        }
+      }
+    }
+  },
+  "version": {
+    "csn": "1.0"
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.19.2"
+  },
+  "$version": "1.0",
+  "@sql_mapping": "plain"
+}
